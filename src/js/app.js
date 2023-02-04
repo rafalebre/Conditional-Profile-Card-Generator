@@ -7,8 +7,8 @@ import "../style/index.css";
     {
         includeCover: true, // if includeCover is true the algorithm should
         background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da", // this is the url of the image that will used as background for the profile cover
-        avatarURL: "https://randomuser.me/api/portraits/women/42.jpg", // this is the url for the profile avatar
-        socialMediaPosition: "left", // social media bar position (left or right)
+        avatarURL: "https://avatars.githubusercontent.com/rafalebre", // this is the url for the profile avatar
+        socialMediaPosition: "left", "right"// social media bar position (left or right)
         
         twitter: null, // social media usernames
         github: null,
@@ -29,13 +29,20 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
-  // reset the website body with the new html output
+  function nullCheck(Variable) {
+    if (Variable == null) {
+      return "";
+    }
+    return Variable;
+  }
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
+          <h1>${nullCheck(variables.name)} ${nullCheck(variables.lastname)}</h1>
+          <h2>${nullCheck(variables.role)}</h2>
+          <h3>${nullCheck(variables.city)} - ${nullCheck(
+    variables.country
+  )}</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
@@ -56,7 +63,7 @@ window.onload = function() {
     // this is the url of the image that will used as background for the profile cover
     background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL: "https://avatars.githubusercontent.com/rafalebre",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
