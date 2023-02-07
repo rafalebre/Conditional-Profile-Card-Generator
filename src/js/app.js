@@ -43,7 +43,7 @@ function render(variables = {}) {
           <h3>${nullCheck(variables.city)} - ${nullCheck(
     variables.country
   )}</h3>
-          <ul class="position-right">
+          <ul class=${variables.socialMediaPosition}>
             <li><a href="https://twitter.com/rslebre"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/rafalebre"><i class="fab fa-github"></i></a></li>
             <li><a href="https://www.linkedin.com/in/rafael-s-lebre/"><i class="fab fa-linkedin"></i></a></li>
